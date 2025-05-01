@@ -36,6 +36,11 @@ func Split(uri string) (scheme string, host string, collection string, query str
 	{
 		urloc, err = gourl.Parse(uri)
 		if nil != err {
+			if e, casted := err.(*gourl.Error); casted {
+				if ":" == e.URL {
+					err = erorr.Errorf("xrpc: expected scheme to be %q or %q but was %q", Scheme, SchemeUnencrypted, "")
+				}
+			}
 			return
 		}
 		if nil == urloc {
