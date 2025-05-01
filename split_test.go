@@ -3,6 +3,8 @@ package xrpcuri_test
 import (
 	"testing"
 
+	"net/url"
+
 	"github.com/reiver/go-xrpcuri"
 )
 
@@ -74,6 +76,105 @@ func TestSplit(t *testing.T) {
 			ExpectedCollection:                "app.cherry.fooBar",
 			ExpectedQuery:                                       "actor=joeblow&sort=desc",
 			ExpectedFragment:                                                            "wXyZ123",
+		},
+
+
+
+		{
+			URI:            `xrpc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xrpC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xrPc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xrPC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xRpc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xRpC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xRPc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `xRPC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `Xrpc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XrpC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XrPc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XrPC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XRpc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XRpC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XRPc://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XRPC://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedScheme: "xrpc",
+			ExpectedHost:          "host.example",
+			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 	}
 
@@ -175,8 +276,101 @@ func TestSplit_fail(t *testing.T) {
 
 
 		{
+			URI: "x",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xr",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrp",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
 			URI: "xrpc",
 			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+
+
+
+		{
+			URI: "xrpc-",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-u",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-un",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-une",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unen",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unenc",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencr",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencry",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencryp",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencrypt",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencrypte",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "xrpc-unencrypted",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+
+
+
+		{
+			URI: ":",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was ""`,
+		},
+		{
+			URI: "x:",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was "x"`,
+		},
+		{
+			URI: "xr:",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was "xr"`,
+		},
+		{
+			URI: "xrp:",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was "xrp"`,
+		},
+
+
+
+		{
+			URI: "xrpc-:",
+			ExpectedError: `xrpc: expected scheme to be "xrpc" or "xrpc-unencrypted" but was "xrpc-"`,
 		},
 	}
 
@@ -196,6 +390,11 @@ func TestSplit_fail(t *testing.T) {
 			t.Errorf("For test #%d, the actual error is not what was expected.", testNumber)
 			t.Logf("EXPECTED-ERROR: %s", expected)
 			t.Logf("  ACTUAL-ERROR: %s", actual)
+			t.Logf("ERROR-TYPE: %T", err)
+			if e, casted := err.(*url.Error); casted {
+				t.Logf("ERROR-OP: %q", e.Op)
+				t.Logf("ERROR-URL: %q", e.URL)
+			}
 			t.Logf("URI: %s", test.URI)
 			continue
 		}
