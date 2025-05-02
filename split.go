@@ -67,6 +67,10 @@ func split(uri string, scheme string) (host string, id string, query string, fra
 	}
 
 	host   = urloc.Host
+	if nil != urloc.User {
+		host = urloc.User.String() + "@" + host
+	}
+
 	id = nsid
 	query = urloc.RawQuery
 	fragment = urloc.Fragment
