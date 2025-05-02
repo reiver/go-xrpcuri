@@ -18,7 +18,7 @@ func ValidateID(id string) error {
 
 func validateID(id string, uri string) error {
 	if err := ValidateID(id); nil != err {
-		return erorr.Errorf("xrpcuri: XRPC-URI %q has a id %q that is not a valid NSID: %w", uri, id, err)
+		return erorr.Errorf("xrpcuri: XRPC-URI %q has an id %q that is not a valid NSID: %w", uri, id, err)
 	}
 
 	return nil
