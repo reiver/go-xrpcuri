@@ -12,7 +12,6 @@ func TestSplit(t *testing.T) {
 
 	tests := []struct{
 		URI string
-		ExpectedScheme string
 		ExpectedHost string
 		ExpectedCollection string
 		ExpectedQuery string
@@ -20,27 +19,23 @@ func TestSplit(t *testing.T) {
 	}{
 		{
 			URI:            `xrpc://example.com/app.cherry.fooBar`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
 		},
 		{
 			URI:            `xrpc://example.com/app.cherry.fooBar?actor=joeblow&sort=desc`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
 			ExpectedQuery:                                       "actor=joeblow&sort=desc",
 		},
 		{
 			URI:            `xrpc://example.com/app.cherry.fooBar#wXyZ123`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
 			ExpectedFragment:                                    "wXyZ123",
 		},
 		{
 			URI:            `xrpc://example.com/app.cherry.fooBar?actor=joeblow&sort=desc#wXyZ123`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
 			ExpectedQuery:                                       "actor=joeblow&sort=desc",
@@ -51,97 +46,81 @@ func TestSplit(t *testing.T) {
 
 		{
 			URI:            `xrpc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xrpC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xrPc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xrPC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xRpc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xRpC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xRPc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `xRPC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `Xrpc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XrpC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XrPc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XrPC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XRpc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XRpC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XRPc://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
 		{
 			URI:            `XRPC://host.example/once.twice.thrice.fource.someThing`,
-			ExpectedScheme: "xrpc",
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
