@@ -10,7 +10,7 @@ func ExampleNormalizeID() {
 
 	var id string = "COM.Example.fooBar"
 
-	normalizedID := xrpcuri.NormalizeID(authority)
+	normalizedID := xrpcuri.NormalizeID(id)
 
 	fmt.Printf("original id:   %s\n", id)
 	fmt.Printf("normalized id: %s\n", normalizedID)
