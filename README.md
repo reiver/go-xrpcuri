@@ -2,6 +2,9 @@
 
 Package **xrpcuri** provides an implementation of the **XRPC-URI** for **BlueSky** and its **AT-Protocol**, for the Go programming language.
 
+XRPC is defined here:
+https://atproto.com/specs/xrpc
+
 ## Documention
 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-xrpcuri
