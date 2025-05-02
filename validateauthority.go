@@ -34,14 +34,19 @@ func ValidateAuthority(authority string) error {
 
 func validateAuthority(authority string, uri string) error {
 
+	var kind string = "XRPC-URI"
+	if strings.HasPrefix(uri, prefixSchemeUnencrypted) {
+		kind = "XRPC-unencrypted-URI"
+	}
+
 	if err := ValidateAuthority(authority); nil != err {
 		switch {
 		case erorr.Is(err, errEmptyAuthority):
-			return erorr.Errorf("xrpcuri: XRPC-URI %q has an empty 'authority'", uri)
+			return erorr.Errorf("xrpcuri: %s %q has an empty 'authority'", kind, uri)
 		case erorr.Is(err, errAtSignInAuthority):
-			return erorr.Errorf("xrpcuri: XRPC-URI %q may not have an \"@\" in its authority %q", uri, authority)
+			return erorr.Errorf("xrpcuri: %s %q may not have an \"@\" in its authority %q", kind, uri, authority)
 		default:
-			return erorr.Errorf("xrpcuri: XRPC-URI %q has a authority %q that is not a valid: %w", uri, authority, err)
+			return erorr.Errorf("xrpcuri: %s %q has a authority %q that is not a valid: %w", kind, uri, authority, err)
 		}
 	}
 

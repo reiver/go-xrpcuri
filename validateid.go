@@ -1,6 +1,8 @@
 package xrpcuri
 
 import (
+	"strings"
+
 	"github.com/reiver/go-erorr"
 	"github.com/reiver/go-nsid"
 )
@@ -17,8 +19,14 @@ func ValidateID(id string) error {
 }
 
 func validateID(id string, uri string) error {
+	var kind string = "XRPC-URI"
+	if strings.HasPrefix(uri, prefixSchemeUnencrypted) {
+		kind = "XRPC-unencrypted-URI"
+	}
+
+
 	if err := ValidateID(id); nil != err {
-		return erorr.Errorf("xrpcuri: XRPC-URI %q has an id %q that is not a valid NSID: %w", uri, id, err)
+		return erorr.Errorf("xrpcuri: %s %q has an id %q that is not a valid NSID: %w", kind, uri, id, err)
 	}
 
 	return nil
