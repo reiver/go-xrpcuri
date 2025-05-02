@@ -15,8 +15,6 @@ import (
 // ValidatePrefix calls [ValidateScheme] internally.
 //
 // For a more thorough validation of the whole XRPC-URI instead use [Validate].
-//
-// Alternatively, to validate a bit more than ValidatePrefix, without being as thorough as [Validate], instead use [ValidateGenerically].
 func ValidatePrefix(uri string) error {
 
 	if err := ValidateScheme(uri); nil != err {

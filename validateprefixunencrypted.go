@@ -15,8 +15,6 @@ import (
 // ValidatePrefixUnencrypted calls [ValidateSchemeUnencrypted] internally.
 //
 // For a more thorough validation of the whole XRPC-unencrypted-URI instead use [ValidateUnencrypted].
-//
-// Alternatively, to validate a bit more than ValidatePrefixUnencrypted, without being as thorough as [ValidateUnencrypted], instead use [ValidateUnencryptedGenerically].
 func ValidatePrefixUnencrypted(uri string) error {
 
 	if err := ValidateSchemeUnencrypted(uri); nil != err {
