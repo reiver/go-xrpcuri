@@ -4,7 +4,7 @@ import (
 	"github.com/reiver/go-xrpcuri/internal"
 )
 
-// SplitUnencrypted returns the 'host', 'id', 'query', and 'fragment' of at XRPC-URI.
+// SplitUnencrypted returns the 'host', 'id', 'query', and 'fragment' of at XRPC-unencrypted-URI.
 //
 // A 'id' should be an NSID (Namespaced Identifier).
 //
