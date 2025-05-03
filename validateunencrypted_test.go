@@ -21,7 +21,7 @@ func TestValidateUnencrypted(t *testing.T) {
 
                 {
                         URI: "xrpc-unencrypted://foo.com/example/123",
-                        ExpectedError: `xrpcuri: XRPC-unencrypted-URI "xrpc-unencrypted://foo.com/example/123" has an id "example/123" that is not a valid NSID: nsid: nsid ("example/123") should have at least 3 segments but actually has 1`,
+                        ExpectedError: `xrpcuri: XRPC-unencrypted-URI "xrpc-unencrypted://foo.com/example/123" has an id "example" that is not a valid NSID: nsid: nsid ("example") should have at least 3 segments but actually has 1`,
                 },
 
 
