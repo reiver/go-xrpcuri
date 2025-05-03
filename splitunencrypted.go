@@ -1,5 +1,9 @@
 package xrpcuri
 
+import (
+	"github.com/reiver/go-xrpcuri/internal"
+)
+
 // SplitUnencrypted returns the 'host', 'id', 'query', and 'fragment' of at XRPC-URI.
 //
 // A 'id' should be an NSID (Namespaced Identifier).
@@ -20,6 +24,6 @@ package xrpcuri
 //
 // SplitUnencrypted does NOT normalize the returned values.
 func SplitUnencrypted(uri string) (host string, id string, query string, fragment string, err error) {
-	const scheme string = SchemeUnencrypted
-	return split(uri, scheme)
+	const scheme string = xrpcuri_internal.SchemeUnencrypted
+	return xrpcuri_internal.Split(uri, scheme)
 }

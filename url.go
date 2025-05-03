@@ -5,6 +5,8 @@ import (
 
 	"github.com/reiver/go-erorr"
 	libnsid "github.com/reiver/go-nsid"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 // URL represents an 'xrpc' and 'xrpc-unencrypted' URL.
@@ -64,7 +66,7 @@ func ParseURL(url string) (URL, error) {
 		return empty, err
 	}
 	if nil == urloc {
-		return empty, errNilURL
+		return empty, xrpcuri_internal.ErrNilURL
 	}
 
 	var nsid string = urloc.Path
@@ -73,12 +75,12 @@ func ParseURL(url string) (URL, error) {
 	}
 
 	switch urloc.Scheme {
-	case Scheme:
+	case xrpcuri_internal.Scheme:
 		return ConstructURL(urloc.Host, nsid, urloc.RawQuery), nil
-	case SchemeUnencrypted:
+	case xrpcuri_internal.SchemeUnencrypted:
 		return ConstructUnencryptedURL(urloc.Host, nsid, urloc.RawQuery), nil
 	default:
-		return empty, erorr.Errorf("xrpc: expected scheme to be %q or %q but was %q", Scheme, SchemeUnencrypted, urloc.Scheme)
+		return empty, erorr.Errorf("xrpc: expected scheme to be %q or %q but was %q", xrpcuri_internal.Scheme, xrpcuri_internal.SchemeUnencrypted, urloc.Scheme)
 	}
 
 }
@@ -160,9 +162,9 @@ func (receiver URL) String() string {
 	var p []byte = buffer[0:0]
 
 	if receiver.Unencrypted {
-		p = append(p, SchemeUnencrypted...)
+		p = append(p, xrpcuri_internal.SchemeUnencrypted...)
 	} else {
-		p = append(p, Scheme...)
+		p = append(p, xrpcuri_internal.Scheme...)
 	}
 	p = append(p, "://"...)
 

@@ -5,6 +5,8 @@ import (
 
 	"github.com/reiver/go-erorr"
 	"github.com/reiver/go-nsid"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 // ValidateID returns an error if the XRPC-URI 'id' is invalid.
@@ -20,7 +22,7 @@ func ValidateID(id string) error {
 
 func validateID(id string, uri string) error {
 	var kind string = "XRPC-URI"
-	if strings.HasPrefix(uri, prefixSchemeUnencrypted) {
+	if strings.HasPrefix(uri, xrpcuri_internal.PrefixSchemeUnencrypted) {
 		kind = "XRPC-unencrypted-URI"
 	}
 

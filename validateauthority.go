@@ -4,6 +4,8 @@ import (
 	"strings"
 
 	"github.com/reiver/go-erorr"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 const (
@@ -35,7 +37,7 @@ func ValidateAuthority(authority string) error {
 func validateAuthority(authority string, uri string) error {
 
 	var kind string = "XRPC-URI"
-	if strings.HasPrefix(uri, prefixSchemeUnencrypted) {
+	if strings.HasPrefix(uri, xrpcuri_internal.PrefixSchemeUnencrypted) {
 		kind = "XRPC-unencrypted-URI"
 	}
 

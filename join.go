@@ -4,10 +4,12 @@ import (
 	"strings"
 
 	"golang.org/x/net/idna"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 func Join(authority string, id string, query string, fragment string) string {
-	const scheme string = Scheme
+	const scheme string = xrpcuri_internal.Scheme
 
 	authority  = NormalizeAuthority(authority)
 	id         = NormalizeID(id)

@@ -4,6 +4,8 @@ import (
 	"strings"
 
 	"github.com/reiver/go-erorr"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 // ValidateSchemeUnencrypted only validates the scheme of a potential XRPC-unencrypted-URI.
@@ -22,19 +24,19 @@ import (
 func ValidateSchemeUnencrypted(uri string) error {
 
 	if "" == uri {
-		return errEmptyURI
+		return xrpcuri_internal.ErrEmptyURI
 	}
 
 	{
 		var lenuri int = len(uri)
-		if lenuri < lenPrefixSchemeUnencrypted {
-			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-unencrypted-URI because it does not begin with %q", uri, prefixSchemeUnencrypted)
+		if lenuri < xrpcuri_internal.LenPrefixSchemeUnencrypted {
+			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-unencrypted-URI because it does not begin with %q", uri, xrpcuri_internal.PrefixSchemeUnencrypted)
 		}
 
-                var beginning string = uri[:lenPrefixSchemeUnencrypted]
+                var beginning string = uri[:xrpcuri_internal.LenPrefixSchemeUnencrypted]
 
-                if strings.ToLower(beginning) != prefixSchemeUnencrypted {
-			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-unencrypted-URI because it does not begin with %q", uri, prefixSchemeUnencrypted)
+                if strings.ToLower(beginning) != xrpcuri_internal.PrefixSchemeUnencrypted {
+			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-unencrypted-URI because it does not begin with %q", uri, xrpcuri_internal.PrefixSchemeUnencrypted)
                 }
 	}
 

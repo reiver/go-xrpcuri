@@ -1,4 +1,4 @@
-package xrpcuri
+package xrpcuri_internal
 
 const (
 	Scheme            = "xrpc"             // example: "xrpc://public.api.bsky.app/app.bsky.actor.getProfile?actor=reiver.bsky.social"
@@ -6,11 +6,11 @@ const (
 )
 
 const (
-	prefixScheme            = Scheme            + ":"
-	prefixSchemeUnencrypted = SchemeUnencrypted + ":"
+	PrefixScheme            = Scheme            + ":"
+	PrefixSchemeUnencrypted = SchemeUnencrypted + ":"
 )
 
 const (
-	lenPrefixScheme            int = len(prefixScheme)
-	lenPrefixSchemeUnencrypted int = len(prefixSchemeUnencrypted)
+	LenPrefixScheme            int = len(PrefixScheme)
+	LenPrefixSchemeUnencrypted int = len(PrefixSchemeUnencrypted)
 )

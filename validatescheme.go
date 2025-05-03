@@ -4,6 +4,8 @@ import (
 	"strings"
 
 	"github.com/reiver/go-erorr"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 // ValidateScheme only validates the scheme of a potential XRPC-URI.
@@ -22,19 +24,19 @@ import (
 func ValidateScheme(uri string) error {
 
 	if "" == uri {
-		return errEmptyURI
+		return xrpcuri_internal.ErrEmptyURI
 	}
 
 	{
 		var lenuri int = len(uri)
-		if lenuri < lenPrefixScheme {
-			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-URI because it does not begin with %q", uri, prefixScheme)
+		if lenuri < xrpcuri_internal.LenPrefixScheme {
+			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-URI because it does not begin with %q", uri, xrpcuri_internal.PrefixScheme)
 		}
 
-                var beginning string = uri[:lenPrefixScheme]
+                var beginning string = uri[:xrpcuri_internal.LenPrefixScheme]
 
-                if strings.ToLower(beginning) != prefixScheme {
-			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-URI because it does not begin with %q", uri, prefixScheme)
+                if strings.ToLower(beginning) != xrpcuri_internal.PrefixScheme {
+			return erorr.Errorf("xrpcuri: URI %q is not an XRPC-URI because it does not begin with %q", uri, xrpcuri_internal.PrefixScheme)
                 }
 	}
 

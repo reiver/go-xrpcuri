@@ -2,6 +2,8 @@ package xrpcuri
 
 import (
 	"github.com/reiver/go-erorr"
+
+	"github.com/reiver/go-xrpcuri/internal"
 )
 
 // ValidatePrefix only validates the prefix (i.e., "xrpc://") of a potential XRPC-URI.
@@ -21,7 +23,7 @@ func ValidatePrefix(uri string) error {
 		return err
 	}
 
-	str := uri[lenPrefixScheme:]
+	str := uri[xrpcuri_internal.LenPrefixScheme:]
 
 	{
 		const slashSlash string = "//"
