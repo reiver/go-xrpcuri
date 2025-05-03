@@ -542,6 +542,14 @@ func TestSplit(t *testing.T) {
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "once.twice.thrice.fource.someThing",
 		},
+
+
+
+		{
+			URI:            `xrpc://Host.EXAMPLE/apple.BANANA.Cherry.dAtE/wxyZ`,
+			ExpectedHost:          "Host.EXAMPLE",
+			ExpectedCollection:                 "apple.BANANA.Cherry.dAtE",
+		},
 	}
 
 	for testNumber, test := range tests {
@@ -623,110 +631,110 @@ func TestSplit_fail(t *testing.T) {
 
 		{
 			URI: "http://example.com",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "http"`,
+			ExpectedError: `xrpcuri: URI "http://example.com" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 
 
 
 		{
 			URI: "x",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "x" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xr",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xr" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrp",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrp" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 
 
 
 		{
 			URI: "xrpc-",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-u",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-u" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-un",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-un" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-une",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-une" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unen",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unen" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unenc",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unenc" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencr",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencr" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencry",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencry" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencryp",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencryp" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencrypt",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencrypt" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencrypte",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencrypte" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrpc-unencrypted",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencrypted" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 
 
 
 		{
 			URI: "xrpc-unencrypted:",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "xrpc-unencrypted"`,
+			ExpectedError: `xrpcuri: URI "xrpc-unencrypted:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 
 
 
 		{
 			URI: ":",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was ""`,
+			ExpectedError: `xrpcuri: URI ":" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "x:",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "x"`,
+			ExpectedError: `xrpcuri: URI "x:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xr:",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "xr"`,
+			ExpectedError: `xrpcuri: URI "xr:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 		{
 			URI: "xrp:",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "xrp"`,
+			ExpectedError: `xrpcuri: URI "xrp:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 
 
 
 		{
 			URI: "xrpc-:",
-			ExpectedError: `xrpc: expected scheme to be "xrpc" but actually was "xrpc-"`,
+			ExpectedError: `xrpcuri: URI "xrpc-:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 	}
 
