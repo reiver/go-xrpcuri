@@ -1,7 +1,7 @@
-package xrpcuri
+package xrpcuri_internal
 
 import (
-	"github.com/reiver/go-xrpcuri/internal"
+	"strings"
 )
 
 // NormalizeAuthority returns the normalized form of an XRPC-URI 'authority'.
@@ -16,6 +16,35 @@ import (
 // NormalizeAuthority will leave any potential 'userinfo' in the 'authority' as is.
 //
 // Note that if you want to normalize a whole XRPC-URI rather than just an 'authority', then instead use [Normalize].
-func NormalizeAuthority(authority string) string {
-	return xrpcuri_internal.NormalizeAuthority(authority)
+func NormalizeAuthority(value string) string {
+	var str string = value
+
+	var buffer [256]byte
+	var p []byte = buffer[0:0]
+
+	{
+		var index int = strings.Index(str, "@")
+		if 0 <= index {
+			var userinfo string = str[:index]
+			p = append(p, userinfo...)
+			p = append(p, '@')
+
+			str = str[index+1:]
+		}
+	}
+
+	var length int = len(str)
+
+	for i:=0; i<length; i++ {
+		var b byte = str[i]
+
+		switch {
+		case 'A' <= b && b <= 'Z':
+			p = append(p, b-'A'+'a')
+		default:
+			p = append(p, b)
+		}
+	}
+
+	return string(p)
 }

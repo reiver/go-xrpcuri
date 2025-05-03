@@ -1,7 +1,7 @@
-package xrpcuri
+package xrpcuri_internal
 
 import (
-	"github.com/reiver/go-xrpcuri/internal"
+	"github.com/reiver/go-nsid"
 )
 
 // NormalizeID returns the normalized form of an XRPC-URI 'id', as defined in:
@@ -16,6 +16,6 @@ import (
 // Normalizing that non-normalized XRPC-URI 'id' would result in "com.example.fooBar".
 //
 // Note that if you want to normalize a whole XRPC-URI rather than just a 'id', then instead use [Normalize].
-func NormalizeID(id string) string {
-	return xrpcuri_internal.NormalizeID(id)
+func NormalizeID(value string) string {
+	return nsid.Normalize(value)
 }
