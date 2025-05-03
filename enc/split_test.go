@@ -1,11 +1,11 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"testing"
 
 	"net/url"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func TestSplit(t *testing.T) {
@@ -554,7 +554,7 @@ func TestSplit(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actualHost, actualCollection, actualQuery, actualFragment, err := xrpcuri.Split(test.URI)
+		actualHost, actualCollection, actualQuery, actualFragment, err := xrpcurienc.Split(test.URI)
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error but actually got one.", testNumber)
 			t.Logf("ERROR: %s", err)
@@ -740,7 +740,7 @@ func TestSplit_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		_, _, _, _, err := xrpcuri.Split(test.URI)
+		_, _, _, _, err := xrpcurienc.Split(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			t.Logf("URI: %s", test.URI)

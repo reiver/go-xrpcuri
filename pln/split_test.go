@@ -1,14 +1,14 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
 	"net/url"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func TestSplitUnencrypted(t *testing.T) {
+func TestSplit(t *testing.T) {
 
 	tests := []struct{
 		URI string
@@ -487,7 +487,7 @@ func TestSplitUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actualHost, actualCollection, actualQuery, actualFragment, err := xrpcuri.SplitUnencrypted(test.URI)
+		actualHost, actualCollection, actualQuery, actualFragment, err := xrpcuripln.Split(test.URI)
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error but actually got one.", testNumber)
 			t.Logf("ERROR: %s", err)
@@ -549,7 +549,7 @@ func TestSplitUnencrypted(t *testing.T) {
 	}
 }
 
-func TestSplitUnencrypted_fail(t *testing.T) {
+func TestSplit_fail(t *testing.T) {
 
 	tests := []struct{
 		URI string
@@ -704,7 +704,7 @@ func TestSplitUnencrypted_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		_, _, _, _, err := xrpcuri.SplitUnencrypted(test.URI)
+		_, _, _, _, err := xrpcuripln.Split(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			t.Logf("URI: %s", test.URI)

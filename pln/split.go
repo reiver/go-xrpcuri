@@ -1,10 +1,10 @@
-package xrpcuri
+package xrpcuripln
 
 import (
 	"github.com/reiver/go-xrpcuri/internal"
 )
 
-// SplitUnencrypted returns the 'host', 'id', 'query', and 'fragment' of at XRPC-unencrypted-URI.
+// Split returns the 'host', 'id', 'query', and 'fragment' of at XRPC-unencrypted-URI.
 //
 // A 'id' should be an NSID (Namespaced Identifier).
 //
@@ -12,7 +12,7 @@ import (
 //
 //	var uri string = "xrpc-unencrypted://public.api.bsky.app/app.bsky.actor.getProfile?actor=reiver.bsky.social"
 //
-//	host, id, query, fragment, err := xrpcuri.SplitUnencrypted(uri)
+//	host, id, query, fragment, err := xrpcuripln.Split(uri)
 //	if nil != err {
 //		return err
 //	}
@@ -22,8 +22,8 @@ import (
 //	// query    == "actor=reiver.bsky.social"
 //	// fragment == ""
 //
-// SplitUnencrypted does NOT normalize the returned values.
-func SplitUnencrypted(uri string) (host string, id string, query string, fragment string, err error) {
+// Split does NOT normalize the returned values.
+func Split(uri string) (host string, id string, query string, fragment string, err error) {
 	const scheme string = xrpcuri_internal.SchemeUnencrypted
 	return xrpcuri_internal.Split(uri, scheme)
 }

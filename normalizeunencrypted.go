@@ -1,5 +1,9 @@
 package xrpcuri
 
+import (
+	"github.com/reiver/go-xrpcuri/pln"
+)
+
 // NormalizeUnencrypted returns the normalized form of an XRPC-unencrypted-URI.
 //
 // NormalizeUnencrypted does NOT validate the XRPC-unencrypted-URI.
@@ -18,7 +22,7 @@ func NormalizeUnencrypted(uri string) string {
 		return uri
 	}
 
-	authority, id, query, fragment, err := SplitUnencrypted(uri)
+	authority, id, query, fragment, err := xrpcuripln.Split(uri)
 	if nil != err {
 		return uri
 	}

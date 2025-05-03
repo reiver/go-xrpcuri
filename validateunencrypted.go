@@ -1,5 +1,9 @@
 package xrpcuri
 
+import (
+	"github.com/reiver/go-xrpcuri/pln"
+)
+
 // ValidateUnencrypted returns an error if the XRPC-URI is invalid.
 // It returns nil if the XRPC-URI is valid.
 //
@@ -12,7 +16,7 @@ func ValidateUnencrypted(uri string) error {
 		return err
 	}
 
-	authority, id, _, _, err := SplitUnencrypted(uri)
+	authority, id, _, _, err := xrpcuripln.Split(uri)
 	if nil != err {
 		return err
 	}
