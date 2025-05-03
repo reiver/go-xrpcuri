@@ -18,6 +18,424 @@ func TestSplit(t *testing.T) {
 		ExpectedFragment string
 	}{
 		{
+			URI: `xrpc:`,
+		},
+		{
+			URI: `xrpC:`,
+		},
+		{
+			URI: `xrPc:`,
+		},
+		{
+			URI: `xrPC:`,
+		},
+		{
+			URI: `xRpc:`,
+		},
+		{
+			URI: `xRpC:`,
+		},
+		{
+			URI: `xRPc:`,
+		},
+		{
+			URI: `xRPC:`,
+		},
+		{
+			URI: `Xrpc:`,
+		},
+		{
+			URI: `XrpC:`,
+		},
+		{
+			URI: `XrPc:`,
+		},
+		{
+			URI: `XrPC:`,
+		},
+		{
+			URI: `XRpc:`,
+		},
+		{
+			URI: `XRpC:`,
+		},
+		{
+			URI: `XRPc:`,
+		},
+		{
+			URI: `XRPC:`,
+		},
+
+
+
+		{
+			URI: `xrpc://`,
+		},
+		{
+			URI: `xrpC://`,
+		},
+		{
+			URI: `xrPc://`,
+		},
+		{
+			URI: `xrPC://`,
+		},
+		{
+			URI: `xRpc://`,
+		},
+		{
+			URI: `xRpC://`,
+		},
+		{
+			URI: `xRPc://`,
+		},
+		{
+			URI: `xRPC://`,
+		},
+		{
+			URI: `Xrpc://`,
+		},
+		{
+			URI: `XrpC://`,
+		},
+		{
+			URI: `XrPc://`,
+		},
+		{
+			URI: `XrPC://`,
+		},
+		{
+			URI: `XRpc://`,
+		},
+		{
+			URI: `XRpC://`,
+		},
+		{
+			URI: `XRPc://`,
+		},
+		{
+			URI: `XRPC://`,
+		},
+
+
+
+		{
+			URI:   `xrpc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrpC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrPc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrPC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRpc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRpC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRPc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRPC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `Xrpc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrpC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrPc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrPC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRpc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRpC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRPc://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRPC://Example.COM`,
+			ExpectedHost: "Example.COM",
+		},
+
+
+
+		{
+			URI:   `xrpc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrpC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrPc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xrPC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRpc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRpC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRPc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `xRPC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `Xrpc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrpC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrPc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XrPC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRpc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRpC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRPc://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+		{
+			URI:   `XRPC://Example.COM/`,
+			ExpectedHost: "Example.COM",
+		},
+
+
+
+		{
+			URI:   `xrpc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xrpC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xrPc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xrPC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xRpc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xRpC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xRPc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `xRPC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `Xrpc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XrpC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XrPc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XrPC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XRpc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XRpC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XRPc://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+		{
+			URI:   `XRPC://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+		},
+
+
+
+		{
+			URI:   `xrpc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xrpC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xrPc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xrPC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xRpc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xRpC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xRPc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `xRPC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `Xrpc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XrpC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XrPc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XrPC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XRpc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XRpC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XRPc://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI:   `XRPC://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost: "Example.COM",
+			ExpectedCollection:       "APP.Cherry.fooBar",
+			ExpectedQuery:                              "actor=JoeBlow&sort=desc",
+		},
+
+
+
+		{
 			URI:            `xrpc://example.com/app.cherry.fooBar`,
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",

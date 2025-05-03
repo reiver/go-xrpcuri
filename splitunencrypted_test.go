@@ -18,6 +18,357 @@ func TestSplitUnencrypted(t *testing.T) {
 		ExpectedFragment string
 	}{
 		{
+			URI: `xrpc-unencrypted:`,
+		},
+		{
+			URI: `xrpC-unencrypted:`,
+		},
+		{
+			URI: `xrPc-unencrypted:`,
+		},
+		{
+			URI: `xrPC-unencrypted:`,
+		},
+		{
+			URI: `xRpc-unencrypted:`,
+		},
+		{
+			URI: `xRpC-unencrypted:`,
+		},
+		{
+			URI: `xRPc-unencrypted:`,
+		},
+		{
+			URI: `xRPC-unencrypted:`,
+		},
+		{
+			URI: `Xrpc-unencrypted:`,
+		},
+		{
+			URI: `XrpC-unencrypted:`,
+		},
+		{
+			URI: `XrPc-unencrypted:`,
+		},
+		{
+			URI: `XrPC-unencrypted:`,
+		},
+		{
+			URI: `XRpc-unencrypted:`,
+		},
+		{
+			URI: `XRpC-unencrypted:`,
+		},
+		{
+			URI: `XRPc-unencrypted:`,
+		},
+		{
+			URI: `XRPC-unencrypted:`,
+		},
+
+
+
+		{
+			URI: `xrpc-unencrypted://`,
+		},
+		{
+			URI: `xrpC-unencrypted://`,
+		},
+		{
+			URI: `xrPc-unencrypted://`,
+		},
+		{
+			URI: `xrPC-unencrypted://`,
+		},
+		{
+			URI: `xRpc-unencrypted://`,
+		},
+		{
+			URI: `xRpC-unencrypted://`,
+		},
+		{
+			URI: `xRPc-unencrypted://`,
+		},
+		{
+			URI: `xRPC-unencrypted://`,
+		},
+		{
+			URI: `Xrpc-unencrypted://`,
+		},
+		{
+			URI: `XrpC-unencrypted://`,
+		},
+		{
+			URI: `XrPc-unencrypted://`,
+		},
+		{
+			URI: `XrPC-unencrypted://`,
+		},
+		{
+			URI: `XRpc-unencrypted://`,
+		},
+		{
+			URI: `XRpC-unencrypted://`,
+		},
+		{
+			URI: `XRPc-unencrypted://`,
+		},
+		{
+			URI: `XRPC-unencrypted://`,
+		},
+
+
+
+		{
+			URI: `xrpc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xrpC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xrPc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xrPC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xRpc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xRpC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xRPc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `xRPC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `Xrpc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XrpC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XrPc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XrPC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XRpc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XRpC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XRPc-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+		{
+			URI: `XRPC-unencrypted://Example.COM`,
+			ExpectedHost:           "Example.COM",
+		},
+
+
+
+		{
+			URI: `xrpc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xrpC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xrPc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xrPC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xRpc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xRpC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xRPc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `xRPC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `Xrpc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XrpC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XrPc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XrPC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XRpc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XRpC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XRPc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+		{
+			URI: `XRPC-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+		},
+
+
+
+		{
+			URI: `xrpc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xrpC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xrPc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xrPC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xRpc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xRpC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xRPc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `xRPC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `Xrpc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XrpC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XrPc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XrPC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XRpc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XRpC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XRPc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+		{
+			URI: `XRPC-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:           "Example.COM",
+			ExpectedCollection:                 "APP.Cherry.fooBar",
+			ExpectedQuery:                                        "actor=JoeBlow&sort=desc",
+		},
+
+
+
+		{
 			URI:            `xrpc-unencrypted://example.com/app.cherry.fooBar`,
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
