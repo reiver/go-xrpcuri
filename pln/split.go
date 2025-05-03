@@ -24,6 +24,5 @@ import (
 //
 // Split does NOT normalize the returned values.
 func Split(uri string) (host string, id string, query string, fragment string, err error) {
-	const scheme string = xrpcuri_internal.SchemeUnencrypted
-	return xrpcuri_internal.Split(uri, scheme)
+	return xrpcuri_internal.Split(uri, Scheme)
 }
