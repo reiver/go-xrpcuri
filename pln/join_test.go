@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
 func TestJoinUnencrypted(t *testing.T) {
@@ -51,12 +51,12 @@ func TestJoinUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := xrpcuri.JoinUnencrypted(test.Host, test.Collection, test.Query, test.Fragment)
+		actual := xrpcuripln.Join(test.Host, test.Collection, test.Query, test.Fragment)
 
 		expected := test.Expected
 
 		if expected != actual {
-			t.Errorf("For test #%d, the actual XRPC-URI is not what was expected.", testNumber)
+			t.Errorf("For test #%d, the actual XRPC-unencrypted-URI is not what was expected.", testNumber)
 			t.Logf("EXPECTED: %s", expected)
 			t.Logf("ACTUAL:   %s", actual)
 			t.Logf("HOST:       %q", test.Host)

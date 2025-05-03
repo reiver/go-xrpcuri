@@ -30,5 +30,5 @@ func NormalizeUnencrypted(uri string) string {
 	authority = NormalizeAuthority(authority)
 	id        = NormalizeID(id)
 
-	return JoinUnencrypted(authority, id, query, fragment)
+	return xrpcuripln.Join(authority, id, query, fragment)
 }

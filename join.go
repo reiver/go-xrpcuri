@@ -1,10 +1,9 @@
 package xrpcuri
 
 import (
-	"github.com/reiver/go-xrpcuri/internal"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func Join(authority string, id string, query string, fragment string) string {
-	const scheme string = xrpcuri_internal.Scheme
-	return xrpcuri_internal.Join(scheme, authority, id, query, fragment)
+	return xrpcurienc.Join(authority, id, query, fragment)
 }

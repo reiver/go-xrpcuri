@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func TestJoin(t *testing.T) {
@@ -51,7 +51,7 @@ func TestJoin(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := xrpcuri.Join(test.Host, test.Collection, test.Query, test.Fragment)
+		actual := xrpcurienc.Join(test.Host, test.Collection, test.Query, test.Fragment)
 
 		expected := test.Expected
 

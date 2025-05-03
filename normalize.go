@@ -1,5 +1,9 @@
 package xrpcuri
 
+import (
+	"github.com/reiver/go-xrpcuri/enc"
+)
+
 // Normalize returns the normalized form of an XRPC-URI.
 //
 // Normalize does NOT validate the XRPC-URI.
@@ -26,5 +30,5 @@ func Normalize(uri string) string {
 	authority = NormalizeAuthority(authority)
 	id        = NormalizeID(id)
 
-	return Join(authority, id, query, fragment)
+	return xrpcurienc.Join(authority, id, query, fragment)
 }

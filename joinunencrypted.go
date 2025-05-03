@@ -1,10 +1,9 @@
 package xrpcuri
 
 import (
-	"github.com/reiver/go-xrpcuri/internal"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func JoinUnencrypted(host string, id string, query string, fragment string) string {
-	const scheme string = xrpcuri_internal.SchemeUnencrypted
-	return xrpcuri_internal.Join(scheme, host, id, query, fragment)
+func JoinUnencrypted(authority string, id string, query string, fragment string) string {
+	return xrpcuripln.Join(authority, id, query, fragment)
 }
