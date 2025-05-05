@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func TestNormalize(t *testing.T) {
@@ -900,7 +900,7 @@ func TestNormalize(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := xrpcuri.Normalize(test.URI)
+		actual := xrpcurienc.Normalize(test.URI)
 
 		expected := test.Expected
 

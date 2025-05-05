@@ -2,11 +2,12 @@ package xrpcuri
 
 import (
 	"github.com/reiver/go-xrpcuri/enc"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-// Normalize returns the normalized form of an XRPC-URI.
+// Normalize returns the normalized form of an XRPC-URI or an XRPC-unencrypted-URI.
 //
-// Normalize does NOT validate the XRPC-URI.
+// Normalize does NOT validate the XRPC-URI or XRPC-unencrypted-URI.
 // To validate, call [Validate].
 //
 // An example of a non-normalized XRPC-URI would be:
@@ -17,18 +18,10 @@ import (
 //
 //	xrpc://video.archive.org/com.example.fooBar
 func Normalize(uri string) string {
-
-	if err := ValidateScheme(uri); nil != err {
-		return uri
+	switch {
+	case nil == xrpcuripln.ValidateScheme(uri):
+		return xrpcuripln.Normalize(uri)
+	default:
+		return xrpcurienc.Normalize(uri)
 	}
-
-	authority, id, query, fragment, err := Split(uri)
-	if nil != err {
-		return uri
-	}
-
-	authority = NormalizeAuthority(authority)
-	id        = NormalizeID(id)
-
-	return xrpcurienc.Join(authority, id, query, fragment)
 }

@@ -1,12 +1,12 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func TestNormalizeUnencrypted(t *testing.T) {
+func TestNormalize(t *testing.T) {
 
 	tests := []struct{
 		URI string
@@ -967,7 +967,7 @@ func TestNormalizeUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actual := xrpcuri.NormalizeUnencrypted(test.URI)
+		actual := xrpcuripln.Normalize(test.URI)
 
 		expected := test.Expected
 
