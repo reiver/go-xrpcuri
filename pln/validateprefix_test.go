@@ -1,12 +1,12 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func TestValidatePrefixUnencrypted(t *testing.T) {
+func TestValidatePrefix(t *testing.T) {
 
 	tests := []struct{
 		URI string
@@ -320,7 +320,7 @@ func TestValidatePrefixUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidatePrefixUnencrypted(test.URI)
+		err := xrpcuripln.ValidatePrefix(test.URI)
 
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error but actually got one.", testNumber)
@@ -623,7 +623,7 @@ func TestValidatePrefixUnencrypted_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidatePrefixUnencrypted(test.URI)
+		err := xrpcuripln.ValidatePrefix(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			t.Logf("URI: %s", test.URI)

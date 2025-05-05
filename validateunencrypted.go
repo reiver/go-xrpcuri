@@ -12,7 +12,7 @@ import (
 // [ValidateSchemeUnencrypted].
 func ValidateUnencrypted(uri string) error {
 
-	if err := ValidatePrefixUnencrypted(uri); nil != err {
+	if err := xrpcuripln.ValidatePrefix(uri); nil != err {
 		return err
 	}
 

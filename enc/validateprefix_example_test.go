@@ -1,16 +1,16 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"fmt"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func ExampleValidatePrefix() {
 
 	var uri string = "xrpc:example.com"
 
-	err := xrpcuri.ValidatePrefix(uri)
+	err := xrpcurienc.ValidatePrefix(uri)
 
 	fmt.Printf("error: %s\n", err)
 
