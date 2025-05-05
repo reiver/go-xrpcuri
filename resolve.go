@@ -1,9 +1,10 @@
 package xrpcuri
 
 import (
+	"strings"
+
 	"github.com/reiver/go-erorr"
 
-	"github.com/reiver/go-xrpcuri/enc"
 	"github.com/reiver/go-xrpcuri/internal"
 	"github.com/reiver/go-xrpcuri/pln"
 )
@@ -18,7 +19,23 @@ import (
 //
 //	"xrpc-unencrypted://example.com/com.example.fooBar" -> "http://example.com/xrpc/com.example.fooBar"
 func Resolve(uri string, requestType string) (string, error) {
-	switch requestType {
+
+	{
+		var lower string = strings.ToLower(uri)
+
+		switch {
+		case strings.HasPrefix(lower, "https:"):
+			return uri, nil
+		case strings.HasPrefix(lower, "wss:"):
+			return uri, nil
+		case strings.HasPrefix(lower, "http:"):
+			return uri, nil
+		case strings.HasPrefix(lower, "ws:"):
+			return uri, nil
+		}
+	}
+
+	switch strings.ToLower(requestType) {
 	case RequestTypeExecute, RequestTypeProcedure:
 		return resolveWeb(uri)
 	case RequestTypeQuery:
@@ -35,12 +52,12 @@ func resolveWeb(uri string) (string, error) {
 	var fn     func(string)(string,string,string,string,error)
 	var scheme string
 
+	fn = SplitAndNormalizeAndValidate
+
 	switch {
 	case nil == xrpcuripln.ValidateScheme(uri):
-		fn     = xrpcuripln.Split
 		scheme = "http"
 	default:
-		fn     = xrpcurienc.Split
 		scheme = "https"
 	}
 
@@ -51,12 +68,12 @@ func resolveWebSocket(uri string) (string, error) {
 	var fn     func(string)(string,string,string,string,error)
 	var scheme string
 
+	fn = SplitAndNormalizeAndValidate
+
 	switch {
 	case nil == xrpcuripln.ValidateScheme(uri):
-		fn     = xrpcuripln.Split
 		scheme = "ws"
 	default:
-		fn     = xrpcurienc.Split
 		scheme = "wss"
 	}
 
