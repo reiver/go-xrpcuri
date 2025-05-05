@@ -5,5 +5,7 @@ import (
 )
 
 const (
-	Scheme = xrpcuri_internal.Scheme
+	Scheme          = xrpcuri_internal.Scheme
+	PrefixScheme    = xrpcuri_internal.PrefixScheme
+	LenPrefixScheme = xrpcuri_internal.LenPrefixScheme
 )

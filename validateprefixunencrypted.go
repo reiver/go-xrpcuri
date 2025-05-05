@@ -3,7 +3,7 @@ package xrpcuri
 import (
 	"github.com/reiver/go-erorr"
 
-	"github.com/reiver/go-xrpcuri/internal"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
 // ValidatePrefixUnencrypted only validates the prefix (i.e., "xrpc://") of a potential XRPC-unencrypted-URI.
@@ -19,11 +19,11 @@ import (
 // For a more thorough validation of the whole XRPC-unencrypted-URI instead use [ValidateUnencrypted].
 func ValidatePrefixUnencrypted(uri string) error {
 
-	if err := ValidateSchemeUnencrypted(uri); nil != err {
+	if err := xrpcuripln.ValidateScheme(uri); nil != err {
 		return err
 	}
 
-	str := uri[xrpcuri_internal.LenPrefixSchemeUnencrypted:]
+	str := uri[xrpcuripln.LenPrefixScheme:]
 
 	{
 		const slashSlash string = "//"

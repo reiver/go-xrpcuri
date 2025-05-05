@@ -1,16 +1,16 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"fmt"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func ExampleValidateSchemeUnencrypted() {
+func ExampleValidateScheme() {
 
 	var uri string = "http://example.com/once/twice/thrice/fource.html"
 
-	err := xrpcuri.ValidateSchemeUnencrypted(uri)
+	err := xrpcuripln.ValidateScheme(uri)
 
 	fmt.Printf("error: %s\n", err)
 

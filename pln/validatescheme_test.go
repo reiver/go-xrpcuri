@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
 func TestValidateSchemeUnencrypted(t *testing.T) {
@@ -371,7 +371,7 @@ func TestValidateSchemeUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidateSchemeUnencrypted(test.URI)
+		err := xrpcuripln.ValidateScheme(test.URI)
 
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error but actually got one.", testNumber)
@@ -484,7 +484,7 @@ func TestValidateSchemeUnencrypted_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidateSchemeUnencrypted(test.URI)
+		err := xrpcuripln.ValidateScheme(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			t.Logf("URI: %s", test.URI)

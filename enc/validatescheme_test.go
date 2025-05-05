@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func TestValidateScheme(t *testing.T) {
@@ -273,7 +273,7 @@ func TestValidateScheme(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidateScheme(test.URI)
+		err := xrpcurienc.ValidateScheme(test.URI)
 
 		if nil != err {
 			t.Errorf("For test #%d, did not expect an error but actually got one.", testNumber)
@@ -386,7 +386,7 @@ func TestValidateScheme_fail(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidateScheme(test.URI)
+		err := xrpcurienc.ValidateScheme(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but did not actually get one.", testNumber)
 			t.Logf("URI: %s", test.URI)

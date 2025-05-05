@@ -18,7 +18,7 @@ import (
 //	xrpc-unencrypted://video.archive.org/com.example.fooBar
 func NormalizeUnencrypted(uri string) string {
 
-	if err := ValidateSchemeUnencrypted(uri); nil != err {
+	if err := xrpcuripln.ValidateScheme(uri); nil != err {
 		return uri
 	}
 

@@ -5,5 +5,7 @@ import (
 )
 
 const (
-	Scheme = xrpcuri_internal.SchemeUnencrypted
+	Scheme          = xrpcuri_internal.SchemeUnencrypted
+	PrefixScheme    = xrpcuri_internal.PrefixSchemeUnencrypted
+	LenPrefixScheme = xrpcuri_internal.LenPrefixSchemeUnencrypted
 )

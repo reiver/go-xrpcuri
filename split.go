@@ -26,7 +26,7 @@ import (
 // Split does NOT normalize the returned values.
 func Split(uri string) (host string, id string, query string, fragment string, err error) {
 	switch {
-	case nil == ValidateSchemeUnencrypted(uri):
+	case nil == xrpcuripln.ValidateScheme(uri):
 		return xrpcuripln.Split(uri)
 	default:
 		return xrpcurienc.Split(uri)
