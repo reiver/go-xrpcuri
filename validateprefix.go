@@ -4,6 +4,7 @@ import (
 	"github.com/reiver/go-erorr"
 
 	"github.com/reiver/go-xrpcuri/enc"
+	"github.com/reiver/go-xrpcuri/internal"
 	"github.com/reiver/go-xrpcuri/pln"
 )
 
@@ -19,6 +20,10 @@ import (
 //
 // For a more thorough validation of the whole XRPC-URI or XRPC-unencrypted-URI instead use [Validate].
 func ValidatePrefix(uri string) error {
+
+	if "" == uri {
+		return xrpcuri_internal.ErrEmptyURI
+	}
 
 	err1 := xrpcuripln.ValidatePrefix(uri)
 	err2 := xrpcurienc.ValidatePrefix(uri)

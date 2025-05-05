@@ -4,6 +4,7 @@ import (
 	"github.com/reiver/go-erorr"
 
 	"github.com/reiver/go-xrpcuri/enc"
+	"github.com/reiver/go-xrpcuri/internal"
 	"github.com/reiver/go-xrpcuri/pln"
 )
 
@@ -21,6 +22,10 @@ import (
 //
 // Alternatively, to validate a bit more than ValidateScheme, without being as thorough as [Validate], instead use [ValidatePrefix].
 func ValidateScheme(uri string) error {
+
+	if "" == uri {
+		return xrpcuri_internal.ErrEmptyURI
+	}
 
 	err1 := xrpcuripln.ValidateScheme(uri)
 	err2 := xrpcurienc.ValidateScheme(uri)
