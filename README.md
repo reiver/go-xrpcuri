@@ -5,6 +5,8 @@ Package **xrpcuri** provides an implementation of the **XRPC-URI** for **BlueSky
 XRPC is defined here:
 https://atproto.com/specs/xrpc
 
+The **XRPC-URI** is not part of the https://atproto.com/specs/xrpc specification, but is instead something invented by this package.
+
 ## Documention
 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-xrpcuri
@@ -40,8 +42,6 @@ Here are some examples:
 | `xrpc-unencrypted://localhost/link.banana.bazQux` | `execute`         |   `http://localhost/xrpc/link.banana.bazQux` |
 | `xrpc-unencrypted://localhost/link.banana.bazQux` | `query`           |   `http://localhost/xrpc/link.banana.bazQux` |
 | `xrpc-unencrypted://localhost/link.banana.bazQux` | `subscribe`       |     `ws://localhost/xrpc/link.banana.bazQux` |
-
-These 2 XRPC URIs are passed to the `xrpcuri.Execute()`, `xrpcuri.Query()`, and `xrpcuri.Subscribe()` functions.
 
 ## Import
 
