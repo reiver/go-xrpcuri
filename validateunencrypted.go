@@ -1,6 +1,7 @@
 package xrpcuri
 
 import (
+	"github.com/reiver/go-xrpcuri/internal"
 	"github.com/reiver/go-xrpcuri/pln"
 )
 
@@ -21,10 +22,10 @@ func ValidateUnencrypted(uri string) error {
 		return err
 	}
 
-	if err := validateAuthority(authority, uri); nil != err {
+	if err := xrpcuri_internal.ValidateAuthorityPretty(authority, uri); nil != err {
 		 return err
 	}
-	if err := validateID(id, uri); nil != err {
+	if err := xrpcuri_internal.ValidateIDPretty(id, uri); nil != err {
 		 return err
 	}
 

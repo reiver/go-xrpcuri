@@ -1,11 +1,6 @@
 package xrpcuri
 
 import (
-	"strings"
-
-	"github.com/reiver/go-erorr"
-	"github.com/reiver/go-nsid"
-
 	"github.com/reiver/go-xrpcuri/internal"
 )
 
@@ -17,19 +12,5 @@ import (
 // An XRPC-URI 'id' must be an NSID, and its validation rules are defined at:
 // https://atproto.com/specs/nsid
 func ValidateID(id string) error {
-	return nsid.Validate(id)
-}
-
-func validateID(id string, uri string) error {
-	var kind string = "XRPC-URI"
-	if strings.HasPrefix(uri, xrpcuri_internal.PrefixSchemeUnencrypted) {
-		kind = "XRPC-unencrypted-URI"
-	}
-
-
-	if err := ValidateID(id); nil != err {
-		return erorr.Errorf("xrpcuri: %s %q has an id %q that is not a valid NSID: %w", kind, uri, id, err)
-	}
-
-	return nil
+	return xrpcuri_internal.ValidateID(id)
 }

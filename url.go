@@ -183,7 +183,7 @@ func (receiver URL) String() string {
 // Validate returns an error if the URL is invalid.
 func (receiver URL) Validate() error {
 	if "" == receiver.Host {
-		return errEmptyAuthority
+		return xrpcuri_internal.ErrEmptyAuthority
 	}
 
 	{

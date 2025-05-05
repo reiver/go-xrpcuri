@@ -1,5 +1,9 @@
 package xrpcuri
 
+import (
+	"github.com/reiver/go-xrpcuri/internal"
+)
+
 // Validate returns an error if the XRPC-URI is invalid.
 // It returns nil if the XRPC-URI is valid.
 //
@@ -17,10 +21,10 @@ func Validate(uri string) error {
 		return err
 	}
 
-	if err := validateAuthority(authority, uri); nil != err {
+	if err := xrpcuri_internal.ValidateAuthorityPretty(authority, uri); nil != err {
 		 return err
 	}
-	if err := validateID(id, uri); nil != err {
+	if err := xrpcuri_internal.ValidateIDPretty(id, uri); nil != err {
 		 return err
 	}
 
