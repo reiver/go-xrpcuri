@@ -1,9 +1,9 @@
-package xrpcuri_test
+package xrpcurienc_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/enc"
 )
 
 func TestValidate(t *testing.T) {
@@ -73,7 +73,7 @@ func TestValidate(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.Validate(test.URI)
+		err := xrpcurienc.Validate(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but didn't get one.", testNumber)
 			t.Logf("URI: %q", test.URI)

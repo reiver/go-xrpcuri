@@ -1,16 +1,16 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
         "fmt"
 
-        "github.com/reiver/go-xrpcuri"
+        "github.com/reiver/go-xrpcuri/pln"
 )
 
 func ExampleValidateUnencrypted() {
 
         var xrpcURI string = "xrpc-unencrypted://archive.org/COM.Example.fooBar?actor=JoeBlow"
 
-        err := xrpcuri.ValidateUnencrypted(xrpcURI)
+        err := xrpcuripln.Validate(xrpcURI)
 
         fmt.Printf("XRPC-unencrypted-URI: %s\n", xrpcURI)
         fmt.Printf("validation error: %s\n", err)

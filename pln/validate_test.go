@@ -1,12 +1,12 @@
-package xrpcuri_test
+package xrpcuripln_test
 
 import (
 	"testing"
 
-	"github.com/reiver/go-xrpcuri"
+	"github.com/reiver/go-xrpcuri/pln"
 )
 
-func TestValidateUnencrypted(t *testing.T) {
+func TestValidate(t *testing.T) {
 
 	tests := []struct{
 		URI string
@@ -73,7 +73,7 @@ func TestValidateUnencrypted(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		err := xrpcuri.ValidateUnencrypted(test.URI)
+		err := xrpcuripln.Validate(test.URI)
 		if nil == err {
 			t.Errorf("For test #%d, expected an error but didn't get one.", testNumber)
 			t.Logf("URI: %q", test.URI)

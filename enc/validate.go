@@ -1,23 +1,22 @@
-package xrpcuri
+package xrpcurienc
 
 import (
 	"github.com/reiver/go-xrpcuri/internal"
-	"github.com/reiver/go-xrpcuri/pln"
 )
 
-// ValidateUnencrypted returns an error if the XRPC-URI is invalid.
+// Validate returns an error if the XRPC-URI is invalid.
 // It returns nil if the XRPC-URI is valid.
 //
 // To validate a potential XRPC-URI more liberally, use one of the following:
-// [ValidatePrefixUnencrypted],
-// [ValidateSchemeUnencrypted].
-func ValidateUnencrypted(uri string) error {
+// [ValidatePrefix],
+// [ValidateScheme].
+func Validate(uri string) error {
 
-	if err := xrpcuripln.ValidatePrefix(uri); nil != err {
+	if err := ValidatePrefix(uri); nil != err {
 		return err
 	}
 
-	authority, id, _, _, err := xrpcuripln.Split(uri)
+	authority, id, _, _, err := Split(uri)
 	if nil != err {
 		return err
 	}
