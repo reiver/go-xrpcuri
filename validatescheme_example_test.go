@@ -15,5 +15,5 @@ func ExampleValidateScheme() {
 	fmt.Printf("error: %s\n", err)
 
 	// Output:
-	// error: xrpcuri: URI "http://example.com/once/twice/thrice/fource.html" is not an XRPC-URI because it does not begin with "xrpc:"
+	// error: xrpcuri: URI "http://example.com/once/twice/thrice/fource.html" is not an XRPC-URI or an XRPC-unencrypted-URI because it does not begin with "xrpc:" or "xrpc-unencrypted:"
 }
