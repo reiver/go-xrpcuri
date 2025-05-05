@@ -1,6 +1,6 @@
 package xrpcuri
 
-// SplitAndNormalize returns the 'authority', 'id', 'query', and 'fragment' of an XRPC-URI.
+// SplitAndNormalize returns the 'authority', 'id', 'query', and 'fragment' of an XRPC-URI or XRPC-unencrypted-URI.
 //
 // An 'id' is an NSID (Namespaced Identifier).
 //

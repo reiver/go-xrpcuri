@@ -24,6 +24,8 @@ import (
 //	// fragment == ""
 //
 // Split does NOT normalize the returned values.
+//
+// If you are not sure whether to use Split or [SpliAndNormalize], use [SplitAndNormalize].
 func Split(uri string) (host string, id string, query string, fragment string, err error) {
 	switch {
 	case nil == xrpcuripln.ValidateScheme(uri):

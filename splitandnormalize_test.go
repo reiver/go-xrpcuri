@@ -69,6 +69,159 @@ func TestSplitAndNormalize(t *testing.T) {
 
 
 		{
+			URI: `xrpc-unencrypted:`,
+		},
+		{
+			URI: `xrpC-unencrypted:`,
+		},
+		{
+			URI: `xrPc-unencrypted:`,
+		},
+		{
+			URI: `xrPC-unencrypted:`,
+		},
+		{
+			URI: `xRpc-unencrypted:`,
+		},
+		{
+			URI: `xRpC-unencrypted:`,
+		},
+		{
+			URI: `xRPc-unencrypted:`,
+		},
+		{
+			URI: `xRPC-unencrypted:`,
+		},
+		{
+			URI: `Xrpc-unencrypted:`,
+		},
+		{
+			URI: `XrpC-unencrypted:`,
+		},
+		{
+			URI: `XrPc-unencrypted:`,
+		},
+		{
+			URI: `XrPC-unencrypted:`,
+		},
+		{
+			URI: `XRpc-unencrypted:`,
+		},
+		{
+			URI: `XRpC-unencrypted:`,
+		},
+		{
+			URI: `XRPc-unencrypted:`,
+		},
+		{
+			URI: `XRPC-unencrypted:`,
+		},
+
+
+
+		{
+			URI: `xrpc-UNenCRYpted:`,
+		},
+		{
+			URI: `xrpC-UNenCRYpted:`,
+		},
+		{
+			URI: `xrPc-UNenCRYpted:`,
+		},
+		{
+			URI: `xrPC-UNenCRYpted:`,
+		},
+		{
+			URI: `xRpc-UNenCRYpted:`,
+		},
+		{
+			URI: `xRpC-UNenCRYpted:`,
+		},
+		{
+			URI: `xRPc-UNenCRYpted:`,
+		},
+		{
+			URI: `xRPC-UNenCRYpted:`,
+		},
+		{
+			URI: `Xrpc-UNenCRYpted:`,
+		},
+		{
+			URI: `XrpC-UNenCRYpted:`,
+		},
+		{
+			URI: `XrPc-UNenCRYpted:`,
+		},
+		{
+			URI: `XrPC-UNenCRYpted:`,
+		},
+		{
+			URI: `XRpc-UNenCRYpted:`,
+		},
+		{
+			URI: `XRpC-UNenCRYpted:`,
+		},
+		{
+			URI: `XRPc-UNenCRYpted:`,
+		},
+		{
+			URI: `XRPC-UNenCRYpted:`,
+		},
+
+
+
+		{
+			URI: `xrpc-UNENCRYPTED:`,
+		},
+		{
+			URI: `xrpC-UNENCRYPTED:`,
+		},
+		{
+			URI: `xrPc-UNENCRYPTED:`,
+		},
+		{
+			URI: `xrPC-UNENCRYPTED:`,
+		},
+		{
+			URI: `xRpc-UNENCRYPTED:`,
+		},
+		{
+			URI: `xRpC-UNENCRYPTED:`,
+		},
+		{
+			URI: `xRPc-UNENCRYPTED:`,
+		},
+		{
+			URI: `xRPC-UNENCRYPTED:`,
+		},
+		{
+			URI: `Xrpc-UNENCRYPTED:`,
+		},
+		{
+			URI: `XrpC-UNENCRYPTED:`,
+		},
+		{
+			URI: `XrPc-UNENCRYPTED:`,
+		},
+		{
+			URI: `XrPC-UNENCRYPTED:`,
+		},
+		{
+			URI: `XRpc-UNENCRYPTED:`,
+		},
+		{
+			URI: `XRpC-UNENCRYPTED:`,
+		},
+		{
+			URI: `XRPc-UNENCRYPTED:`,
+		},
+		{
+			URI: `XRPC-UNENCRYPTED:`,
+		},
+
+
+
+		{
 			URI: `xrpc://`,
 		},
 		{
@@ -115,6 +268,57 @@ func TestSplitAndNormalize(t *testing.T) {
 		},
 		{
 			URI: `XRPC://`,
+		},
+
+
+
+		{
+			URI: `xrpc-unencrypted://`,
+		},
+		{
+			URI: `xrpC-unencrypted://`,
+		},
+		{
+			URI: `xrPc-unencrypted://`,
+		},
+		{
+			URI: `xrPC-unencrypted://`,
+		},
+		{
+			URI: `xRpc-unencrypted://`,
+		},
+		{
+			URI: `xRpC-unencrypted://`,
+		},
+		{
+			URI: `xRPc-unencrypted://`,
+		},
+		{
+			URI: `xRPC-unencrypted://`,
+		},
+		{
+			URI: `Xrpc-unencrypted://`,
+		},
+		{
+			URI: `XrpC-unencrypted://`,
+		},
+		{
+			URI: `XrPc-unencrypted://`,
+		},
+		{
+			URI: `XrPC-unencrypted://`,
+		},
+		{
+			URI: `XRpc-unencrypted://`,
+		},
+		{
+			URI: `XRpC-unencrypted://`,
+		},
+		{
+			URI: `XRPc-unencrypted://`,
+		},
+		{
+			URI: `XRPC-unencrypted://`,
 		},
 
 
@@ -187,6 +391,73 @@ func TestSplitAndNormalize(t *testing.T) {
 
 
 		{
+			URI:   `xrpc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xrpC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xrPc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xrPC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xRpc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xRpC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xRPc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `xRPC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `Xrpc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XrpC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XrPc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XrPC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XRpc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XRpC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XRPc-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+		{
+			URI:   `XRPC-unencrypted://Example.COM`,
+			ExpectedHost:             "example.com",
+		},
+
+
+
+		{
 			URI:   `xrpc://Example.COM/`,
 			ExpectedHost: "example.com",
 		},
@@ -249,6 +520,18 @@ func TestSplitAndNormalize(t *testing.T) {
 		{
 			URI:   `XRPC://Example.COM/`,
 			ExpectedHost: "example.com",
+		},
+
+
+
+		{
+			URI:   `xrpc-unencrypted://Example.COM/`,
+			ExpectedHost:             "example.com",
+		},
+
+		{
+			URI:   `XRPC-UNENCRYPTED://Example.COM/`,
+			ExpectedHost:             "example.com",
 		},
 
 
@@ -332,6 +615,20 @@ func TestSplitAndNormalize(t *testing.T) {
 			URI:   `XRPC://Example.COM/APP.Cherry.fooBar`,
 			ExpectedHost: "example.com",
 			ExpectedCollection:       "app.cherry.fooBar",
+		},
+
+
+
+		{
+			URI:   `xrpc-unencrypted://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:             "example.com",
+			ExpectedCollection:                   "app.cherry.fooBar",
+		},
+
+		{
+			URI:   `XRPC-UNENCRYPTED://Example.COM/APP.Cherry.fooBar`,
+			ExpectedHost:             "example.com",
+			ExpectedCollection:                   "app.cherry.fooBar",
 		},
 
 
@@ -436,6 +733,22 @@ func TestSplitAndNormalize(t *testing.T) {
 
 
 		{
+			URI:   `XRPC-UNENCRYPTED://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:             "example.com",
+			ExpectedCollection:                   "app.cherry.fooBar",
+			ExpectedQuery:                                          "actor=JoeBlow&sort=desc",
+		},
+
+		{
+			URI:   `xrpc-unencrypted://Example.COM/APP.Cherry.fooBar?actor=JoeBlow&sort=desc`,
+			ExpectedHost:             "example.com",
+			ExpectedCollection:                   "app.cherry.fooBar",
+			ExpectedQuery:                                          "actor=JoeBlow&sort=desc",
+		},
+
+
+
+		{
 			URI:            `xrpc://example.com/app.cherry.fooBar`,
 			ExpectedHost:          "example.com",
 			ExpectedCollection:                "app.cherry.fooBar",
@@ -458,6 +771,16 @@ func TestSplitAndNormalize(t *testing.T) {
 			ExpectedCollection:                "app.cherry.fooBar",
 			ExpectedQuery:                                       "actor=joeblow&sort=desc",
 			ExpectedFragment:                                                            "wXyZ123",
+		},
+
+
+
+		{
+			URI:            `xrpc-UNENCRYPTED://example.com/app.cherry.fooBar?actor=joeblow&sort=desc#wXyZ123`,
+			ExpectedHost:                      "example.com",
+			ExpectedCollection:                            "app.cherry.fooBar",
+			ExpectedQuery:                                                   "actor=joeblow&sort=desc",
+			ExpectedFragment:                                                                        "wXyZ123",
 		},
 
 
@@ -546,9 +869,30 @@ func TestSplitAndNormalize(t *testing.T) {
 
 
 		{
+			URI:            `xrpc-unencrypted://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedHost:                      "host.example",
+			ExpectedCollection:                             "once.twice.thrice.fource.someThing",
+		},
+		{
+			URI:            `XRPC-UNENCRYPTED://host.example/once.twice.thrice.fource.someThing`,
+			ExpectedHost:                      "host.example",
+			ExpectedCollection:                             "once.twice.thrice.fource.someThing",
+		},
+
+
+
+		{
 			URI:            `xrpc://Host.EXAMPLE/apple.BANANA.Cherry.dAtE/wxyZ`,
 			ExpectedHost:          "host.example",
 			ExpectedCollection:                 "apple.banana.cherry.dAtE",
+		},
+
+
+
+		{
+			URI:            `xrpc-unencrypted://Host.EXAMPLE/apple.BANANA.Cherry.dAtE/wxyZ`,
+			ExpectedHost:                      "host.example",
+			ExpectedCollection:                             "apple.banana.cherry.dAtE",
 		},
 	}
 
@@ -707,13 +1051,6 @@ func TestSplitAndNormalize_fail(t *testing.T) {
 
 
 		{
-			URI: "xrpc-unencrypted:",
-			ExpectedError: `xrpcuri: URI "xrpc-unencrypted:" is not an XRPC-URI because it does not begin with "xrpc:"`,
-		},
-
-
-
-		{
 			URI: ":",
 			ExpectedError: `xrpcuri: URI ":" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
@@ -735,6 +1072,38 @@ func TestSplitAndNormalize_fail(t *testing.T) {
 		{
 			URI: "xrpc-:",
 			ExpectedError: `xrpcuri: URI "xrpc-:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-u:",
+			ExpectedError: `xrpcuri: URI "xrpc-u:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-un:",
+			ExpectedError: `xrpcuri: URI "xrpc-un:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-unc:",
+			ExpectedError: `xrpcuri: URI "xrpc-unc:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-uncr:",
+			ExpectedError: `xrpcuri: URI "xrpc-uncr:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-uncry:",
+			ExpectedError: `xrpcuri: URI "xrpc-uncry:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-uncryp:",
+			ExpectedError: `xrpcuri: URI "xrpc-uncryp:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-uncrypt:",
+			ExpectedError: `xrpcuri: URI "xrpc-uncrypt:" is not an XRPC-URI because it does not begin with "xrpc:"`,
+		},
+		{
+			URI: "xrpc-uncrypte:",
+			ExpectedError: `xrpcuri: URI "xrpc-uncrypte:" is not an XRPC-URI because it does not begin with "xrpc:"`,
 		},
 	}
 
