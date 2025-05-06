@@ -29,8 +29,7 @@ func Resolve(uri string, fn func(string)(string,string,string,string,error), sch
 
 	p = append(p, authority...)
 
-	p = append(p, "/xrpc/"...)
-	p = append(p, id...)
+	p = append(p, ResolveID(id)...)
 
 	if "" != query {
 		p = append(p, '?')
