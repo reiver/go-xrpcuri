@@ -27,13 +27,13 @@ func Resolve(uri string, fn func(string)(string,string,string,string,error), sch
 	p = append(p, scheme...)
 	p = append(p, "://"...)
 
-	p = append(p, authority...)
+	p = append(p, encodeAtSign(encodeSolidus(encodeQuestionMark(encodeNumberSign(encodePercentSign(authority)))))...)
 
 	p = append(p, ResolveID(id)...)
 
 	if "" != query {
 		p = append(p, '?')
-		p = append(p, query...)
+		p = append(p, encodeNumberSign(encodePercentSign(query))...)
 	}
 
 	if "" != fragment {
