@@ -25,6 +25,32 @@ func TestResolveID(t *testing.T) {
 			ID:             "COM.Example.fooBar",
 			Expected: "/xrpc/com.example.fooBar",
 		},
+
+
+
+		{
+			ID:             "5%",
+			Expected: "/xrpc/5%25",
+		},
+		{
+			ID:             "#5",
+			Expected: "/xrpc/%235",
+		},
+		{
+			ID:             "what?",
+			Expected: "/xrpc/what%3F",
+		},
+		{
+			ID:             "1/2",
+			Expected: "/xrpc/1%2F2",
+		},
+
+
+
+		{
+			ID:             "COM/Example/fooBar",
+			Expected: "/xrpc/com%2Fexample%2Ffoobar",
+		},
 	}
 
 	for testNumber, test := range tests {
